@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Character, Nation } = require('../index');
+const { Character, Nation } = require('../../db/index');
 
 
 router.get('/characters', async(req, res, next) => {
