@@ -1,11 +1,13 @@
-const server = require('/index')
-const { db } = require('/db')
+const { app, conn } = require('./index')
+
+
 
 const init = async() => {
     try{
+        await conn.sync();
         await syncAndSeed();
         const port = process.env.PORT || 3000;
-        server.listen(port, () => {
+        app.listen(port, () => {
             console.log(`listening on port ${port}`)
         });
     }
