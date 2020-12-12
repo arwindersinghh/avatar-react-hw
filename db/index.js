@@ -19,7 +19,8 @@ const Character = conn.define('character', {
 });
 
 const Nation = conn.define('nation', {
-    name : STRING
+    name : STRING,
+    imgURL : STRING
 });
 
 Character.belongsTo(Nation);
@@ -60,10 +61,10 @@ const syncAndSeed = async() => {
     //     Nation.create({ name : nation.name })
     // }));  
 
-    const fireNation = await Nation.create({ name: 'Fire Nation' });
-    const waterNation = await Nation.create({ name: 'Water Tribe' });
-    const earthNation = await Nation.create({ name: 'Earth Kingdom' });
-    const airNation = await Nation.create({ name: 'Air Nomads' });
+    const fireNation = await Nation.create({ name: 'Fire Nation', imgURL: 'fireNation.png' });
+    const waterNation = await Nation.create({ name: 'Water Tribe', imgURL: 'waterNation.png' });
+    const earthNation = await Nation.create({ name: 'Earth Kingdom', imgURL: 'earthNation.png' });
+    const airNation = await Nation.create({ name: 'Air Nomads', imgURL: 'airNation.jpg' });
 
     aang.nationId = airNation.id;
     katara.nationId = waterNation.id;

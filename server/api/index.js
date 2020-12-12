@@ -10,6 +10,14 @@ router.get('/characters', async(req, res, next) => {
         next(ex)
     }
 })
+router.post('/characters', async(req, res, next) => {
+    try{
+        res.send(await Character.create(req.body))
+    }
+    catch(ex){
+        next(ex)
+    }
+})
 
 router.get('/nations', async(req, res, next) => {
     try{

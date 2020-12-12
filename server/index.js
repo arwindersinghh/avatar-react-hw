@@ -26,18 +26,9 @@ app.use(express.urlencoded({extended: true}))
 
 app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(express.static(path.join(__dirname, '..', 'dist')))
+// app.use(express.static(path.join(__dirname, '..', 'index.html')))
 
 app.use('/api', require('./api'))
-
-
-app.use((req, res, next) => {
-    if (path.extname(req.path).length > 0) {
-      res.status(404).end()
-    } else {
-      next()
-    }
-  })
-
 
   app.get('/', (req, res, next) => {
     res.sendFile(path.join(__dirname, '..', 'index.html'));
@@ -49,4 +40,3 @@ app.use((req, res, next) => {
     res.status(err.status || 500).send(err.message || 'Internal server error.')
   })
 
-module.exports = app;
