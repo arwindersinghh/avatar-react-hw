@@ -29,7 +29,14 @@ class Main extends React.Component{
         this.setState({ nationId: window.location.hash.slice(1)})
     }
     async handleDelete(id){
-        console.log(id);
+        
+        await axios.delete(`/api/characters/${id}`)
+        
+        this.setState({
+            nations: (await axios.get('/api/nations')).data,
+            loading: false
+        });
+        
     }
 
     render() {

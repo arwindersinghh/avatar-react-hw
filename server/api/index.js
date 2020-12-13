@@ -14,7 +14,8 @@ router.get('/characters', async(req, res, next) => {
 router.delete('/characters/:id', async(req, res, next) => {
     try{
         const character = await Character.findByPk(req.params.id);
-        character.destroy();
+        await character.destroy();
+        res.sendStatus(204);
     }
     catch(ex){
         next(ex)

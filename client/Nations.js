@@ -20,7 +20,7 @@ function Nations({nations, handleDelete}){
                                               <li key = { character.id }>
                 
                                                   { character.name }
-                                                  <button onClick={() => handleDelete(character.id)}>x</button>                                                  
+                                                  <button onClick={(e) => handleDelete(character.id, e)}>x</button>                                                  
                                               </li>                                              
                                           )                                          
                                       })                                      
