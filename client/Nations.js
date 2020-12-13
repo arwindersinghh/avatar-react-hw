@@ -1,6 +1,6 @@
 import React from "react";
 
-function Nations({nations, createCharacter}){
+function Nations({nations, handleDelete}){
     return (
         <div>
                 <h2>Nations ({nations.length})</h2>
@@ -19,13 +19,12 @@ function Nations({nations, createCharacter}){
                                           return (
                                               <li key = { character.id }>
                 
-                                                  { character.name }                                                  
+                                                  { character.name }
+                                                  <button onClick={() => handleDelete(character.id)}>x</button>                                                  
                                               </li>                                              
                                           )                                          
                                       })                                      
-                                  }
-                                  <button onClick={createCharacter}> Create Character for {nation.name} </button>
-                                  
+                                  }                                                                    
                               </ul>
                         
                         
