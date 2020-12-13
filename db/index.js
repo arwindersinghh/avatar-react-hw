@@ -19,8 +19,8 @@ const Character = conn.define('character', {
 });
 
 Character.addHook('beforeSave', (character, options) => {
-    const elements = ['All', 'None', 'Fire', 'Water', 'Air', 'Earth'];
-    if(!elements.includes(character.element)){
+    const elements = ['all', 'none', 'fire', 'water', 'air', 'earth'];
+    if(!elements.includes(character.element.toLowerCase())){
         return Promise.reject(new Error("I'm afraid I can't let you do that!"));
     }
 })
